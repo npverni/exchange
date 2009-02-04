@@ -1,0 +1,6 @@
+<% if logged_in? -%>            
+	Welcome, <%= link_to current_user.login, cms_user_path(current_user)%>&nbsp;&nbsp;|&nbsp;&nbsp;
+	<%= link_to "Log out", logout_path, { :title => "Log out" }    %>
+<% else -%>
+	<%= link_to "Log in",  login_path,  { :title => "Log in" } %>                               
+<% end -%>

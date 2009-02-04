@@ -1,0 +1,34 @@
+<h1>Dashboard</h1>
+
+<h2>Statistics</h2>
+<table>
+    <tr>
+        <th></th>
+        <th>Total Posts</th>
+        <th>Total Extras</th>
+        <th>Total Demand</th>
+        <th>Availability Ratio</th>
+        <th>Total Rides Needed</th>
+        <th></th>
+    </tr>
+    <% for show in @shows %>
+        <tr <%= cycle("","class='alt'") %>>
+            <td class="left"><%= link_to show.friendly_name, show %></td>
+            <td><%= show.total_posts %></td>
+            <td><%= show.ticket_count %></td>
+            <td><%= show.wants_count %></td>
+            <td><%= show.ratio %></td>
+            <td><%= show.rides_count %></td>            
+            <td class="actions"><%= link_to 'Need' %> - <%= link_to 'Have' %></td>            
+        </tr>
+    <% end %>
+    <tr class="footer">
+        <td class="left"><strong>Totals</strong></td>
+        <td><%= Show.total_posts %></td>
+        <td><%= Show.total_ticket_count %></td>
+        <td><%= Show.total_wants_count %></td>
+        <td><%= Show.total_ratio %></td>
+        <td><%= Show.total_rides_count %></td>            
+        <td></td>
+    </tr>
+</table>

@@ -25,9 +25,15 @@ class Show < ActiveRecord::Base
     if self.wants.count > 0
       x = (self.ticket_count.to_f/self.wants_count.to_f).to_f.round_to(2)
     else
-      0.0
+      'NA'
     end
   end
+  
+  def friendly_name
+    "#{show_date.strftime("%D") } #{venue.name}"
+  end
+  
+  #class methods
   
   def self.total_posts
     Ticket.count + Want.count
@@ -49,10 +55,16 @@ class Show < ActiveRecord::Base
     if Want.count > 0
       x = (Show.total_ticket_count.to_f/Show.total_wants_count.to_f).to_f.round_to(2)
     else
-      0.0
+      'NA'
     end
   end
   
-  memoize :total_posts, :ticket_count, :wants_count, :rides_count
+  def to_param
+    show_date.strftime("%Y-%m-%d")
+  end
+
+  named_scope :chrono, :order => 'show_date'
+  
+  memoize :total_posts, :ticket_count, :wants_count, :rides_count, :friendly_name
 end
 

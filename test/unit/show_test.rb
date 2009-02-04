@@ -45,9 +45,20 @@ class ShowTest < Test::Unit::TestCase
     end
   end
   
+  
+  context "display helpers" do
+    setup do      
+      @venue = Factory(:venue, :name => 'Jones Beach', :city => 'Wantagh', :state => 'NY')
+      @show = Factory(:show, :show_date => DateTime.new(2009,6,4), :venue => @venue)
+    end
+    
+    should "display a fiendly show name" do
+      assert_equal @show.friendly_name, "06/04/09 Jones Beach"
+    end
+  end
+  
   context "Statiscal class methods" do
-    setup do
-      
+    setup do      
       @venue = Factory(:venue, :name => 'Jones Beach', :city => 'Wantagh', :state => 'NY')
       @show = Factory(:show, :show_date => DateTime.new(2009,6,4))
       @tickets = []
