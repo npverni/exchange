@@ -1,0 +1,14 @@
+log/*
+tmp/**/*
+db/schema.rb
+db/*.sqlite3
+public/system
+*.DS_Store
+coverage/*
+*.swp
+db/*.sql
+config/database.yml
+db/sphinx/*
+!.keep
+vendor/gems
+vendor/gems/*
