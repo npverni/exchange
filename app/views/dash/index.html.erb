@@ -15,8 +15,8 @@
         <tr <%= cycle("","class='alt'") %>>
             <td class="left"><%= link_to show.friendly_name, show %></td>
             <td><%= show.total_posts %></td>
-            <td><%= show.ticket_count %></td>
-            <td><%= show.wants_count %></td>
+            <td style="color:green"><%= show.ticket_count %></td>
+            <td style="color:red"><%= show.wants_count %></td>
             <td><%= show.ratio %></td>
             <td><%= show.rides_count %></td>            
             <td class="actions"><%= link_to 'Need' %> - <%= link_to 'Have' %></td>            

@@ -105,6 +105,7 @@ td.left{text-align:left;}
 table tr.footer td,
 table th{background-color:#000;color:#fff;font-weight:bold;font-size:13px;padding-bottom:10px;}
 table tr.footer td{
+	font-size:20px;
 	border:0px;
 }
 
@@ -190,7 +191,7 @@ div#head img{
 div#head strong{
 	font-size:30px;
 	line-height:30px;
-	margin:40px 0px 0px 40px;
+	margin:40px 0px 0px 20px;
 	color:#fff;
 	float:left;
 }
