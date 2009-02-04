@@ -18,7 +18,14 @@ class Show < ActiveRecord::Base
   end
   
   def rides_count
-    self.tickets.inject(0){|i,t| i = i + 1 if t.needs_ride} + self.wants.inject(0){|i,t| i = i + 1 if t.needs_ride}    
+    c = 0
+    if self.tickets.any?
+      c = c+  self.tickets.inject(0){|i,t| i = i + (t.needs_ride ? 1 : 0)}
+    end
+    if self.wants.any?
+      c = c + self.wants.inject(0){|i,t| i = i + (t.needs_ride ? 1 : 0)}
+    end
+    c
   end
   
   def ratio
@@ -48,7 +55,14 @@ class Show < ActiveRecord::Base
   end
   
   def self.total_rides_count
-     Ticket.all.inject(0){|i,t| i = i + 1 if t.needs_ride} +  Want.all.inject(0){|i,t| i = i + 1 if t.needs_ride}    
+    c = 0
+    if Ticket.all.any?
+      c = c + Ticket.all.inject(0){|i,t| i = i + (t.needs_ride ? 1 : 0)}
+    end
+    if
+       +  Want.all.inject(0){|i,t| i = i + (t.needs_ride ? 1 : 0)}    
+    end
+    c
   end
   
   def self.total_ratio

@@ -19,7 +19,7 @@
             <td style="color:red"><%= show.wants_count %></td>
             <td><%= show.ratio %></td>
             <td><%= show.rides_count %></td>            
-            <td class="actions"><%= link_to 'Need' %> - <%= link_to 'Have' %></td>            
+            <td class="actions"><%= link_to 'Need' %> - <%= link_to 'Have', new_show_ticket_url(show) %></td>            
         </tr>
     <% end %>
     <tr class="footer">

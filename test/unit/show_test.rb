@@ -8,7 +8,9 @@ class ShowTest < Test::Unit::TestCase
   
   should_have_db_column :show_date, :type => :datetime
   should_have_db_column :venue_id, :type => :integer
- 
+
+  should_require_attribute :quantity
+  
   context "Statistical instante methods" do
     setup do
       @venue = Factory(:venue, :name => 'Jones Beach', :city => 'Wantagh', :state => 'NY')

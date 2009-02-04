@@ -12,4 +12,5 @@ class WantTest < Test::Unit::TestCase
   should_have_db_column :needs_ride, :type => :boolean, :default => false
   should_have_db_column :will_accept_cash, :type => :boolean, :default => false
   should_have_db_column :will_accept_trade, :type => :boolean, :default => false
+  should_have_db_column :notes, :type => :text  
 end

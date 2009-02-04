@@ -7,7 +7,6 @@ class ShowsController < ApplicationController
     else
       redirect_to '/'
     end
-
   end
-
+  
 end

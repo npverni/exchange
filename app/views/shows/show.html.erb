@@ -1,5 +1,19 @@
 <h1><%= @show.friendly_name %></h1>
+<div class="left">
+    <h2>People Who Have Tickets</h2>
+    <ul class="userList">
+    <% for ticket in @show.tickets %>
+        <li><%=link_to ticket.user.login , ticket.user %> has <%= pluralize ticket.quantity, 'ticket' %> <span>posted <%= time_ago_in_words ticket.created_at%> ago</span></li>
+        <li><%=link_to ticket.user.login , ticket.user %> has <%= pluralize ticket.quantity, 'ticket' %> <span>posted <%= time_ago_in_words ticket.created_at%> ago</span></li>
+        <li><%=link_to ticket.user.login , ticket.user %> has <%= pluralize ticket.quantity, 'ticket' %> <span>posted <%= time_ago_in_words ticket.created_at%> ago</span></li>                
+    <% end%>
+    </ul>
+</div>
 
-<h2>I Need Tickets</h2>
-
-<h2>I Want Tickets</h2>
+<div class="right">
+    <h2>People Who Want Tickets</h2>
+    <% for want in @show.wants %>
+        <%= link_to want.user.login, want.user %>: <%= want.quantity %>
+    <% end%>
+    
+</div>

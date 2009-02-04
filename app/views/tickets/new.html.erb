@@ -1,0 +1,22 @@
+<h1><%= @show.friendly_name %></h1>
+<h2>List Your Tickets</h2>
+
+<% form_for [@show,@ticket] do |f| %>
+    <%= f.label :quantity %>
+    <%= f.select :quantity, (1..8).map{|c| [c,c]}, {:prompt => "Select One"} %>
+    <br style="clear:both"  />
+    <br />
+    <%= f.label :section %>
+    <%= f.text_field :section %>
+    <br style="clear:both"  />
+    <br />    
+    <%= f.label :notes %>
+    <%= f.text_area :notes %>    
+    <br style="clear:both"  />
+    <br />
+    <label>&nbsp;</label>
+    <%= f.submit 'Submit' %>
+    <br style="clear:both"  />
+    <br />
+    
+<% end %>

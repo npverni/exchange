@@ -10,4 +10,5 @@ class TicketTest < Test::Unit::TestCase
   should_have_db_column :quantity, :type => :integer
   should_have_db_column :section, :type => :string
   should_have_db_column :needs_ride, :type => :boolean, :default => false
+  should_have_db_column :notes, :type => :text
 end
