@@ -6,6 +6,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users
   map.resources :shows do |show|
     show.resources :tickets
+    show.resources :wants
   end
   map.resource :session
 

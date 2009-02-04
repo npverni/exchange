@@ -3,8 +3,6 @@
     <h2>People Who Have Tickets</h2>
     <ul class="userList">
     <% for ticket in @show.tickets %>
-        <li><%=link_to ticket.user.login , ticket.user %> has <%= pluralize ticket.quantity, 'ticket' %> <span>posted <%= time_ago_in_words ticket.created_at%> ago</span></li>
-        <li><%=link_to ticket.user.login , ticket.user %> has <%= pluralize ticket.quantity, 'ticket' %> <span>posted <%= time_ago_in_words ticket.created_at%> ago</span></li>
         <li><%=link_to ticket.user.login , ticket.user %> has <%= pluralize ticket.quantity, 'ticket' %> <span>posted <%= time_ago_in_words ticket.created_at%> ago</span></li>                
     <% end%>
     </ul>
@@ -12,8 +10,9 @@
 
 <div class="right">
     <h2>People Who Want Tickets</h2>
+    <ul class="userList">
     <% for want in @show.wants %>
-        <%= link_to want.user.login, want.user %>: <%= want.quantity %>
-    <% end%>
-    
+        <li><%=link_to want.user.login , want.user %> needs <%= pluralize want.quantity, 'ticket' %> <span>posted <%= time_ago_in_words want.created_at%> ago</span></li>                
+    <% end%>    
+    </ul>
 </div>
