@@ -29,6 +29,30 @@ class Show < ActiveRecord::Base
     end
   end
   
+  def self.total_posts
+    Ticket.count + Want.count
+  end
+  
+  def self.total_ticket_count
+    Ticket.all.inject(0){|i,t| i = i + t.quantity}    
+  end
+  
+  def self.total_wants_count
+    Want.all.inject(0){|i,t| i = i + t.quantity}
+  end
+  
+  def self.total_rides_count
+     Ticket.all.inject(0){|i,t| i = i + 1 if t.needs_ride} +  Want.all.inject(0){|i,t| i = i + 1 if t.needs_ride}    
+  end
+  
+  def self.total_ratio
+    if Want.count > 0
+      x = (Show.total_ticket_count.to_f/Show.total_wants_count.to_f).to_f.round_to(2)
+    else
+      0.0
+    end
+  end
+  
   memoize :total_posts, :ticket_count, :wants_count, :rides_count
 end
 
